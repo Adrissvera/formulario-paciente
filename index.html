@@ -56,8 +56,22 @@
         details { font-size: 13px; color: #374151; margin-bottom: 14px; }
         details summary { cursor: pointer; color: var(--azul); font-weight: 700; padding: 4px 0; }
         details .txt p { margin: 8px 0 0; line-height: 1.55; }
-        .ok { text-align: center; padding: 30px 14px; }
-        .ok .icono { font-size: 56px; }
+        .ok { text-align: center; padding: 24px 16px; }
+        .ok .icono { font-size: 64px; }
+        .ok .gt { margin: 6px 0 4px; font-size: 24px; color: var(--azul); }
+        .ok .falta1 { font-size: 18px; line-height: 1.45; margin: 0 0 16px; }
+        .archivo-box { background: #eef2fb; border: 2px dashed var(--azul); border-radius: 10px; padding: 12px; margin-bottom: 16px; }
+        .archivo-box .etq { display: block; font-size: 15px; margin-bottom: 6px; }
+        .archivo-box strong { display: block; font-size: 17px; word-break: break-all; color: var(--azul-osc); }
+        .archivo-box .donde { display: block; font-size: 15px; margin-top: 8px; color: #374151; }
+        .pasos { list-style: none; padding: 0; margin: 0 0 18px; text-align: left; }
+        .pasos li { display: flex; gap: 12px; align-items: flex-start; font-size: 18px; line-height: 1.4; padding: 10px 0; border-bottom: 1px solid #eef0f6; }
+        .pasos li:last-child { border-bottom: none; }
+        .pasos .num { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--azul); color: white; font-weight: 800; font-size: 20px; display: flex; align-items: center; justify-content: center; }
+        a.btn { display: block; text-align: center; text-decoration: none; }
+        .btn.wa { background: #15803d; font-size: 19px; padding: 18px 12px; }
+        .btn.wa:hover { background: #166534; }
+        .ayuda-box { background: #fef3c7; border-radius: 10px; padding: 12px 14px; margin-top: 16px; font-size: 16px; line-height: 1.45; }
 
         dialog { width: min(92vw, 480px); border: none; border-radius: 12px; padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); color: var(--texto); }
         dialog::backdrop { background: rgba(20, 30, 70, 0.55); }
@@ -86,10 +100,11 @@
         <div class="aviso-falta" id="avisoIncompleto" hidden>⚠️ <strong>Solo para la doctora:</strong> el aviso de privacidad está incompleto (falta domicilio o contacto). Complétalo en el archivo antes de publicar este formulario.</div>
 
         <form id="formulario" novalidate>
-            <div class="intro">Este formulario lo llena el <strong>padre, madre o tutor</strong> del paciente (o el propio paciente si es mayor de edad). Los campos con <span class="req">*</span> son obligatorios. En las preguntas de <strong>Sí / No / No estoy seguro</strong>, si respondes <strong>Sí</strong> se abrirá una ventana para que des más detalles.</div>
+            <div class="intro">Este formulario lo llena el <strong>padre, madre o tutor</strong> del paciente (o el propio paciente si es mayor de edad). Los campos con <span class="req">*</span> son obligatorios. En las preguntas de <strong>Sí / No / No estoy seguro</strong>, si responde <strong>Sí</strong> se abrirá una ventana para que dé más detalles.</div>
+            <div class="intro" style="background:#fef3c7; border-left-color:#f59e0b">🙋 <strong>¿Necesita ayuda para llenarlo?</strong> Pídala en recepción. También puede tocar el micrófono 🎤 del teclado de su celular y <strong>dictar</strong> sus respuestas en lugar de escribirlas.</div>
 
             <div class="card">
-                <h2>Ficha de identidad</h2>
+                <h2>👤 Ficha de identidad</h2>
                 <label class="t" for="f_nombre">Nombre del paciente <span class="req">*</span></label>
                 <input type="text" id="f_nombre" autocomplete="off" maxlength="120" />
 
@@ -145,7 +160,7 @@
             </div>
 
             <div class="card">
-                <h2>Antecedentes personales patológicos</h2>
+                <h2>🩺 Antecedentes personales patológicos</h2>
                 <p class="hint" style="margin-top:-4px">¿Padece o ha padecido alguna enfermedad de lo siguiente? Responde cada una. <span class="req">*</span> Todas son obligatorias.</p>
                 <div id="listaSiNo">
                     <div class="sn-row" data-grupo="sn_corazon"><span class="sn-label">Corazón</span><div class="sn-opts"><label class="sn"><input type="radio" name="sn_corazon" value="SI"><span>Sí</span></label><label class="sn"><input type="radio" name="sn_corazon" value="NO"><span>No</span></label><label class="sn"><input type="radio" name="sn_corazon" value="NOSE"><span>No estoy seguro</span></label></div></div>
@@ -210,7 +225,7 @@
             </div>
 
             <div class="card">
-                <h2>Padecimiento actual</h2>
+                <h2>🦷 Padecimiento actual</h2>
                 <label class="t" for="f_motivo">Motivo de consulta <span class="req">*</span></label>
                 <input type="text" id="f_motivo" maxlength="200" />
                 <div id="filaDolor">
@@ -221,7 +236,7 @@
             </div>
 
             <div class="card">
-                <h2>Declaración y privacidad</h2>
+                <h2>✍️ Declaración y privacidad</h2>
                 <div class="declara">He respondido verazmente a las preguntas antes mencionadas. Si llegase a presentarse alguna modificación del estado de salud o medicamentos del paciente mencionado, le informaré al cirujano dentista en la próxima cita.</div>
                 <label class="t" for="f_firmante">Nombre completo de quien llena este formulario (padre, madre, tutor o paciente adulto) <span class="req">*</span></label>
                 <input type="text" id="f_firmante" maxlength="120" autocomplete="name" />
@@ -235,16 +250,34 @@
             </div>
 
             <div class="error" id="errores" role="alert"></div>
-            <button type="submit" class="btn">Enviar</button>
+            <p class="hint" style="margin:0 0 10px; font-size:14px">Al terminar se preparará un <strong>archivo</strong> que usted enviará por <strong>WhatsApp</strong> al consultorio. Le explicaremos cómo, paso a paso.</p>
+            <button type="submit" class="btn">✅ Terminar</button>
         </form>
 
         <div class="card ok" id="gracias" hidden>
             <div class="icono">✅</div>
-            <h2 style="border:none; margin-top:10px; font-size:18px; text-transform:none; letter-spacing:0">¡Listo, gracias!</h2>
-            <p id="mensajeGracias"></p>
-            <button type="button" class="btn" id="btnReenviar">Enviar archivo al consultorio</button>
-            <button type="button" class="btn sec" id="btnDescargar">Descargar archivo</button>
-            <button type="button" class="btn gris" id="btnNuevo">Llenar otro formulario</button>
+            <h2 class="gt" style="border:none; padding:0; text-transform:none; letter-spacing:0">¡Listo! Ya llenó el formulario</h2>
+            <p class="falta1">Ahora falta <strong>un solo paso</strong>: <strong>ENVIAR</strong> el archivo al consultorio por WhatsApp.</p>
+
+            <div class="archivo-box">
+                <span class="etq">📄 Su archivo se llama:</span>
+                <strong id="nombreArchivoTxt"></strong>
+                <span class="donde" id="dondeArchivo"></span>
+            </div>
+
+            <ol class="pasos">
+                <li><span class="num">1</span><div>Toque el botón verde <strong>“Abrir WhatsApp del consultorio”</strong>.</div></li>
+                <li><span class="num">2</span><div>En WhatsApp toque el clip <strong>📎</strong> (en iPhone, el signo <strong>+</strong>) y luego <strong>“Documento”</strong>.</div></li>
+                <li><span class="num">3</span><div>Busque el archivo con el nombre de arriba y <strong>tóquelo</strong>.</div></li>
+                <li><span class="num">4</span><div>Toque la flecha de enviar <strong>➤</strong>.</div></li>
+            </ol>
+
+            <a class="btn wa" id="btnWhatsApp" target="_blank" rel="noopener">💬 Abrir WhatsApp del consultorio</a>
+            <button type="button" class="btn" id="btnReenviar" style="margin-top:10px" hidden>📤 Compartir el archivo</button>
+            <button type="button" class="btn sec" id="btnDescargar">⬇️ Descargar el archivo otra vez</button>
+
+            <div class="ayuda-box">🙋 <strong>¿Necesita ayuda?</strong> Muestre esta pantalla en recepción o llame al <strong>81 1637 4036</strong>.</div>
+            <button type="button" class="btn gris" id="btnNuevo" style="margin-top:16px">Llenar otro formulario</button>
         </div>
     </div>
 
@@ -266,6 +299,7 @@
         const RESPONSABLE = 'Dra. Hilda Adriana Vergara Rangel';
         const DOMICILIO = 'Ing. Eduardo Chávez, Calle Segunda S/N, C.P. 87500, Valle Hermoso, Tamaulipas';
         const CONTACTO_PRIVACIDAD = 'teléfono 81 1637 4036';
+        const WHATSAPP_CONSULTORIO = '528116374036';
 
         // Mismas claves que usa el sistema (consultorio-dental.html → ANTECEDENTES_SINO).
         const ANTECEDENTES_SINO = [
@@ -599,13 +633,18 @@
             $('gracias').hidden = false;
             window.scrollTo(0, 0);
 
+            $('nombreArchivoTxt').textContent = ultimoArchivo.name;
+            const esIphone = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            const esAndroid = /Android/.test(navigator.userAgent);
+            $('dondeArchivo').textContent = esIphone
+                ? '📁 En iPhone búsquelo en la app “Archivos”, carpeta “Descargas”.'
+                : (esAndroid ? '📁 En Android búsquelo en “Descargas” o en “Archivos recientes”.' : '📁 Búsquelo en la carpeta “Descargas”.');
+            const mensaje = 'Hola, le envío la historia clínica de ' + solicitud.datos.nombre + '. Le adjunto el archivo.';
+            $('btnWhatsApp').href = 'https://wa.me/' + WHATSAPP_CONSULTORIO + '?text=' + encodeURIComponent(mensaje);
+            $('btnReenviar').hidden = !(navigator.canShare && navigator.canShare({ files: [ultimoArchivo] }));
+
             const compartido = await compartir();
-            if (compartido) {
-                $('mensajeGracias').textContent = 'Tu información se preparó para enviarse al consultorio. Si no alcanzaste a enviarla, usa el botón de abajo.';
-            } else {
-                descargar();
-                $('mensajeGracias').textContent = 'Se descargó un archivo con los datos. Envíalo al consultorio por WhatsApp o correo, o entrégalo en recepción.';
-            }
+            if (!compartido) descargar();
         });
 
         $('btnReenviar').addEventListener('click', async () => {
